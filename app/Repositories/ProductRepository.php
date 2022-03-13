@@ -24,4 +24,16 @@ class ProductRepository
 
         return $product;
     }
+
+    public function attachToCategory(array $data)
+    {
+        $product = Product::findOrFail($data['product_id']);
+        $product->categories()->attach($data['category_id']);
+    }
+
+    public function getByCategory($id)
+    {
+        $category = Category::findOrFail($id);
+        return $category->products;
+    }
 }

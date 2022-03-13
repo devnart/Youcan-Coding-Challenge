@@ -23,6 +23,14 @@ class ProductController extends Controller
         return $this->productService->getAll();
     }
 
+    public function attachToCategory(Request $request)
+    {
+        return $this->productService->attachToCategory($request->all());
+    }
+
+    public function getByCategory($id){
+        return $this->productService->getByCategory($id);
+    }
 
     /**
      * Store a newly created resource in storage.

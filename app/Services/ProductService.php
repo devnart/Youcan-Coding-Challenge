@@ -34,4 +34,15 @@ class ProductService
 
         return response()->json(['success' => 'Product has been created successfully.'], 201);
     }
+
+    public function attachToCategory(array $data)
+    {
+        $this->productRepository->attachToCategory($data);
+        return response()->json(['success' => 'Product has been attached to category successfully.'], 201);
+    }
+
+    public function getByCategory($id)
+    {
+        return $this->productRepository->getByCategory($id);
+    }
 }

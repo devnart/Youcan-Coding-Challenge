@@ -23,4 +23,5 @@ class CategoryService
         $this->categoryRepository->create($data);
         return response()->json(['success' => 'Category has been created successfully.']);
     }
+
 }

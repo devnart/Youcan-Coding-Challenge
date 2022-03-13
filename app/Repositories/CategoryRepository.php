@@ -15,6 +15,12 @@ class CategoryRepository
         return Category::create($data);
     }
 
+    public function attachToCategory(array $data)
+    {
+        $product = Product::findOrFail($data['product_id']);
+        $product->categories()->attach($data['category_id']);
+    }
+
     public function delete($id)
     {
         $category = Category::find($id);
