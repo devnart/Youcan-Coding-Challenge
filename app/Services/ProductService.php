@@ -45,4 +45,10 @@ class ProductService
     {
         return $this->productRepository->getByCategory($id);
     }
+
+    public function delete($id)
+    {
+        $product = $this->productRepository->delete($id);
+        return response()->json(['success' => 'Product has been deleted successfully.']);
+    }
 }

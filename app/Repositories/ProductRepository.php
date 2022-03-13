@@ -36,4 +36,10 @@ class ProductRepository
         $category = Category::findOrFail($id);
         return $category->products;
     }
+
+    public function delete($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+    }
 }
