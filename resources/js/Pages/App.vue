@@ -280,10 +280,6 @@ export default {
         padding: 5px 10px;
         margin: 0 5px;
         border-radius: 5px;
-
-        &:last-child {
-            margin-right: 0;
-        }
     }
     .sr-only {
         display: none;

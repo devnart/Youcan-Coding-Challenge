@@ -5,6 +5,9 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
+
+use Illuminate\Support\Facades\Storage;
 
 class ProductTest extends TestCase
 {
@@ -39,6 +42,17 @@ class ProductTest extends TestCase
     {
         $response = $this->get('api/products?sort=name&category=1');
         $response->assertStatus(200);
+    }
+
+    public function test_product_creation(){
+        Storage::fake('photos');
+        $response = $this->post('api/products', [
+            'name' => 'Test Product',
+            'price' => '100',
+            'description' => 'Test Description',
+            'image' => UploadedFile::fake()->image('test.jpg')
+        ]);
+        $response->assertStatus(201);
     }
 
 }
