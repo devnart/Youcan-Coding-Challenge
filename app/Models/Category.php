@@ -11,4 +11,11 @@ class Category extends Model
 
     protected $fillable = ['name','parent_id'];
 
+    /**
+     * Get the products of the category.
+     */
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product','categories_products');
+    }
 }
