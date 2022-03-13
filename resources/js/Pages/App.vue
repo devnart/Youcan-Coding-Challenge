@@ -2,7 +2,6 @@
 import axios from "axios";
 import Product from "../Components/Product.vue";
 import LaravelVuePagination from "laravel-vue-pagination";
-
 export default {
     components: {
         Product,
@@ -227,15 +226,26 @@ export default {
                     />
                 </div>
                 <pagination
+                    show-disabled="true"
                     align="center"
                     :data="products"
                     @pagination-change-page="getData"
                 >
                     <template #prev-nav>
-                        <span>&lt;</span>
+                        <span
+                            ><img
+                                src="../../images/arrow-square-left.svg"
+                                alt=""
+                                srcset=""
+                        /></span>
                     </template>
                     <template #next-nav>
-                        <span>&gt;</span>
+                        <span
+                            ><img
+                                src="../../images/arrow-square-right.svg"
+                                alt=""
+                                srcset=""
+                        /></span>
                     </template>
                 </pagination>
             </section>
@@ -248,9 +258,36 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 0;
     list-style: none;
+
+    .pagination-next-nav,
+    .pagination-prev-nav {
+        img {
+            display: block;
+        }
+    }
+    .page-item.disabled {
+        opacity: 0.4;
+    }
+    .pagination-page-nav.active {
+        background-color: #353535;
+        color: white;
+    }
+    .pagination-page-nav {
+        background: #f4f4f4;
+        padding: 5px 10px;
+        margin: 0 5px;
+        border-radius: 5px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .sr-only {
+        display: none;
+    }
 }
 a {
     text-decoration: none;

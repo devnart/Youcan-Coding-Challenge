@@ -19506,6 +19506,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _images_arrow_square_left_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../images/arrow-square-left.svg */ "./resources/images/arrow-square-left.svg");
+/* harmony import */ var _images_arrow_square_right_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../images/arrow-square-right.svg */ "./resources/images/arrow-square-right.svg");
+
+
 
 var _hoisted_1 = {
   "class": "container"
@@ -19609,11 +19613,19 @@ var _hoisted_22 = {
   "class": "cards"
 };
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "<", -1
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _images_arrow_square_left_svg__WEBPACK_IMPORTED_MODULE_1__["default"],
+  alt: "",
+  srcset: ""
+})], -1
 /* HOISTED */
 );
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, ">", -1
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _images_arrow_square_right_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  alt: "",
+  srcset: ""
+})], -1
 /* HOISTED */
 );
 
@@ -19730,6 +19742,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), 128
   /* KEYED_FRAGMENT */
   ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+    "show-disabled": "true",
     align: "center",
     data: $data.products,
     onPaginationChangePage: $options.getData
@@ -19841,7 +19854,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".pagination {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 0 auto;\n  padding: 0;\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\np {\n  margin: 0;\n  margin-bottom: 20px;\n}\nh4 {\n  margin: 0;\n}\n.container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.cards {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 20px;\n  margin-top: 40px;\n}\nselect {\n  background: #f8f8f8;\n  padding: 10px;\n  margin: 0 10px;\n  border-radius: 5px;\n  outline: none;\n  cursor: pointer;\n}\n.create-form {\n  background: #f4f4f4;\n  padding: 20px;\n  border-radius: 10px;\n  margin: 30px 0;\n}\n.create-form form {\n  width: 90%;\n  margin: 0 auto;\n}\n.create-form form .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  margin-top: 10px;\n}\n.create-form form .form-group input:not([type=\"file\"]) {\n  padding: 15px 10px;\n  border-radius: 5px;\n  margin-top: 5px;\n}\n.create-form button {\n  background-color: #212121;\n  color: #fff;\n}\n.create-form button:hover {\n  color: #212121;\n  background: #ddd;\n}\nbutton {\n  border-radius: 5px;\n  padding: 15px;\n  font-size: 16px;\n  cursor: pointer;\n  color: #212121;\n}\nbutton:hover {\n  background-color: #212121;\n  color: #fff;\n}\n.products {\n  margin: 0 auto;\n  width: 90%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".pagination {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin: 20px auto;\n  padding: 0;\n  list-style: none;\n}\n.pagination .pagination-next-nav img,\n.pagination .pagination-prev-nav img {\n  display: block;\n}\n.pagination .page-item.disabled {\n  opacity: 0.4;\n}\n.pagination .pagination-page-nav.active {\n  background-color: #353535;\n  color: white;\n}\n.pagination .pagination-page-nav {\n  background: #f4f4f4;\n  padding: 5px 10px;\n  margin: 0 5px;\n  border-radius: 5px;\n}\n.pagination .pagination-page-nav:last-child {\n  margin-right: 0;\n}\n.pagination .sr-only {\n  display: none;\n}\na {\n  text-decoration: none;\n}\np {\n  margin: 0;\n  margin-bottom: 20px;\n}\nh4 {\n  margin: 0;\n}\n.container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.cards {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 20px;\n  margin-top: 40px;\n}\nselect {\n  background: #f8f8f8;\n  padding: 10px;\n  margin: 0 10px;\n  border-radius: 5px;\n  outline: none;\n  cursor: pointer;\n}\n.create-form {\n  background: #f4f4f4;\n  padding: 20px;\n  border-radius: 10px;\n  margin: 30px 0;\n}\n.create-form form {\n  width: 90%;\n  margin: 0 auto;\n}\n.create-form form .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  margin-top: 10px;\n}\n.create-form form .form-group input:not([type=\"file\"]) {\n  padding: 15px 10px;\n  border-radius: 5px;\n  margin-top: 5px;\n}\n.create-form button {\n  background-color: #212121;\n  color: #fff;\n}\n.create-form button:hover {\n  color: #212121;\n  background: #ddd;\n}\nbutton {\n  border-radius: 5px;\n  padding: 15px;\n  font-size: 16px;\n  cursor: pointer;\n  color: #212121;\n}\nbutton:hover {\n  background-color: #212121;\n  color: #fff;\n}\n.products {\n  margin: 0 auto;\n  width: 90%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19921,6 +19934,36 @@ module.exports = function (cssWithMappingToString) {
 
   return list;
 };
+
+/***/ }),
+
+/***/ "./resources/images/arrow-square-left.svg":
+/*!************************************************!*\
+  !*** ./resources/images/arrow-square-left.svg ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrow-square-left.svg?fb7aee2cde0f613e226e102e1f930d48");
+
+/***/ }),
+
+/***/ "./resources/images/arrow-square-right.svg":
+/*!*************************************************!*\
+  !*** ./resources/images/arrow-square-right.svg ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrow-square-right.svg?26541c101b0f491265150f76a3b98a0e");
 
 /***/ }),
 
