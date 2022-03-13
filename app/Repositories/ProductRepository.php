@@ -8,7 +8,7 @@ class ProductRepository
 {
     public function getAll()
     {
-        return Product::all();
+        return Product::paginate(10);
     }
 
     public function sort($by, $categoryId)
