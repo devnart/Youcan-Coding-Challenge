@@ -13,14 +13,15 @@ class ProductController extends Controller
     {
         $this->productService = $productService;
     }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return $this->productService->getAll();
+        return $request->query('sort') ? $this->productService->sort($request->query('sort'),$request->query('category')) : $this->productService->getAll();
     }
 
     public function attachToCategory(Request $request)

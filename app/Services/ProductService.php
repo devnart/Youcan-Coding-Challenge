@@ -18,6 +18,11 @@ class ProductService
         return $this->productRepository->getAll();
     }
 
+    public function sort($by, $category = null)
+    {
+        return $this->productRepository->sort($by, $category);
+    }
+    
     public function create($data)
     {
         $validatedData = $data->validate([

@@ -10,6 +10,20 @@ class ProductRepository
     {
         return Product::all();
     }
+
+    public function sort($by, $categoryId)
+    {
+
+        if ($categoryId) {
+            $category = Category::findOrFail($categoryId);
+
+            $sorted = $category->products->sortBy($by);
+            return $sorted->values()->all();
+        } else {
+            return Product::orderBy($by)->get();
+        }
+    }
+
     
     public function create(array $data, $imageName)
     {
