@@ -1,7 +1,11 @@
 <script>
 import axios from "axios";
+import Product from "../Components/Product.vue";
 
 export default {
+  components: {
+    Product,
+  },
   data() {
     return {
       isHidden: true,
@@ -112,6 +116,13 @@ export default {
 <template>
   <main>
     <div class="container">
+      <Product
+       v-for="product in products" :key="product.id"
+        :name="product.name"
+        :price="product.price"
+        :description="product.description"
+        :image="product.image"
+      />
       <section class="products">
         <header>
           <div class="title">
