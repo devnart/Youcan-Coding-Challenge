@@ -19477,7 +19477,7 @@ var _hoisted_2 = {
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "title"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Products"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "All products")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Youcan Coding Challenge")], -1
 /* HOISTED */
 );
 
@@ -19567,67 +19567,12 @@ var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_22 = {
-  "class": "table"
-};
-var _hoisted_23 = {
-  "class": "tbody"
-};
-
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"thead\"><div class=\"tr\"><div class=\"th\">image</div><div class=\"th\">Id</div><div class=\"th\">Name</div><div class=\"th product\">product</div><div class=\"th\">Options</div></div></div>", 1);
-
-var _hoisted_25 = {
-  "class": "td"
-};
-var _hoisted_26 = {
-  "class": "product_info"
-};
-var _hoisted_27 = {
-  "class": "product_avatar"
-};
-var _hoisted_28 = {
-  "class": "avatar"
-};
-var _hoisted_29 = ["src"];
-var _hoisted_30 = {
-  "class": "product_id"
-};
-var _hoisted_31 = {
-  "class": "id"
-};
-var _hoisted_32 = {
-  "class": "product_name"
-};
-var _hoisted_33 = {
-  "class": "name"
-};
-var _hoisted_34 = {
-  "class": "product_description"
-};
-var _hoisted_35 = {
-  "class": "description"
-};
-var _hoisted_36 = {
-  "class": "product_price"
-};
-var _hoisted_37 = {
-  "class": "description"
+  "class": "cards"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Product = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Product");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.products, function (product) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Product, {
-      key: product.id,
-      name: product.name,
-      price: product.price,
-      description: product.description,
-      image: product.image
-    }, null, 8
-    /* PROPS */
-    , ["name", "price", "description", "image"]);
-  }), 128
-  /* KEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     onChange: _cache[0] || (_cache[0] = function () {
       return $options.sort && $options.sort.apply($options, arguments);
     }),
@@ -19722,26 +19667,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* HYDRATE_EVENTS */
   )]), _hoisted_21], 32
   /* HYDRATE_EVENTS */
-  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.products, function (product) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      "class": "tr",
-      key: product.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-      src: "/images/".concat(product.image)
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.products, function (product) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Product, {
+      key: product.id,
+      name: product.name,
+      price: product.price,
+      description: product.description,
+      image: product.image
     }, null, 8
     /* PROPS */
-    , _hoisted_29)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_31, "#" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.id), 1
-    /* TEXT */
-    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1
-    /* TEXT */
-    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_35, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.description), 1
-    /* TEXT */
-    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price), 1
-    /* TEXT */
-    )])])])]);
+    , ["name", "price", "description", "image"]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])])])]);
+  ))])])])]);
 }
 
 /***/ }),
@@ -19837,7 +19775,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "a {\n  text-decoration: none;\n}\np {\n  margin: 0;\n  margin-bottom: 20px;\n}\nh4 {\n  margin: 0;\n}\n.container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\nselect {\n  background: #f8f8f8;\n  padding: 10px;\n  margin: 0 10px;\n  border-radius: 5px;\n  outline: none;\n  cursor: pointer;\n}\n.create-form {\n  background: #f4f4f4;\n  padding: 20px;\n  border-radius: 10px;\n  margin: 30px 0;\n}\n.create-form form {\n  width: 90%;\n  margin: 0 auto;\n}\n.create-form form .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  margin-top: 10px;\n}\n.create-form form .form-group input:not([type=\"file\"]) {\n  padding: 15px 10px;\n  border-radius: 5px;\n  margin-top: 5px;\n}\n.create-form button {\n  background-color: #212121;\n  color: #fff;\n}\n.create-form button:hover {\n  color: #212121;\n  background: #ddd;\n}\nbutton {\n  border-radius: 5px;\n  padding: 15px;\n  font-size: 16px;\n  cursor: pointer;\n  color: #212121;\n}\nbutton:hover {\n  background-color: #212121;\n  color: #fff;\n}\n.thead .tr {\n  display: flex;\n  justify-content: space-between;\n  padding: 15px 10px;\n  text-align: center;\n  margin: 10px;\n}\n.thead .tr .th {\n  color: #000;\n  font-size: 14px;\n}\n.thead .tr div {\n  flex: 1;\n}\n.products {\n  width: 90%;\n  margin: auto;\n}\n.products .table {\n  margin-top: 15px;\n}\n.products p {\n  font-size: 12px;\n}\n.products h3 {\n  font-size: 24px;\n  font-weight: 700;\n  margin-bottom: 0;\n}\n.tbody {\n  background: #fcfcfc;\n  padding: 15px;\n  border-radius: 5px;\n  width: 100%;\n}\n.product_info {\n  display: flex;\n  justify-content: space-between;\n  padding: 15px 10px;\n  background: white;\n  margin: 10px;\n  border-radius: 5px;\n  text-align: center;\n}\n.product_info span {\n  color: #6c6c6c;\n  font-size: 14px;\n}\n.product_info div {\n  flex: 1;\n}\n.product_avatar {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.product_avatar .avatar {\n  width: 35px;\n  height: 35px;\n  border-radius: 5px;\n}\n.product_avatar .avatar img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "a {\n  text-decoration: none;\n}\np {\n  margin: 0;\n  margin-bottom: 20px;\n}\nh4 {\n  margin: 0;\n}\n.container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.cards {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 20px;\n  margin-top: 40px;\n}\nselect {\n  background: #f8f8f8;\n  padding: 10px;\n  margin: 0 10px;\n  border-radius: 5px;\n  outline: none;\n  cursor: pointer;\n}\n.create-form {\n  background: #f4f4f4;\n  padding: 20px;\n  border-radius: 10px;\n  margin: 30px 0;\n}\n.create-form form {\n  width: 90%;\n  margin: 0 auto;\n}\n.create-form form .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  margin-top: 10px;\n}\n.create-form form .form-group input:not([type=\"file\"]) {\n  padding: 15px 10px;\n  border-radius: 5px;\n  margin-top: 5px;\n}\n.create-form button {\n  background-color: #212121;\n  color: #fff;\n}\n.create-form button:hover {\n  color: #212121;\n  background: #ddd;\n}\nbutton {\n  border-radius: 5px;\n  padding: 15px;\n  font-size: 16px;\n  cursor: pointer;\n  color: #212121;\n}\nbutton:hover {\n  background-color: #212121;\n  color: #fff;\n}\n.products {\n  margin: 0 auto;\n  width: 90%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

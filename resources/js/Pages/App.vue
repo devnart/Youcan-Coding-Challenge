@@ -116,18 +116,10 @@ export default {
 <template>
   <main>
     <div class="container">
-      <Product
-       v-for="product in products" :key="product.id"
-        :name="product.name"
-        :price="product.price"
-        :description="product.description"
-        :image="product.image"
-      />
       <section class="products">
         <header>
           <div class="title">
-            <h3>Products</h3>
-            <p>All products</p>
+            <h3>Youcan Coding Challenge</h3>
           </div>
           <div class="container">
             <div class="filters">
@@ -201,41 +193,14 @@ export default {
             </div>
           </form>
         </section>
-        <div class="table">
-          <div class="tbody">
-            <div class="thead">
-              <div class="tr">
-                <div class="th">image</div>
-                <div class="th">Id</div>
-                <div class="th">Name</div>
-                <div class="th product">product</div>
-                <div class="th">Options</div>
-              </div>
-            </div>
-            <div class="tr" v-for="product in products" :key="product.id">
-              <div class="td">
-                <div class="product_info">
-                  <div class="product_avatar">
-                    <span class="avatar">
-                      <img :src="`/images/${product.image}`" />
-                    </span>
-                  </div>
-                  <div class="product_id">
-                    <span class="id">#{{ product.id }}</span>
-                  </div>
-                  <div class="product_name">
-                    <span class="name">{{ product.name }}</span>
-                  </div>
-                  <div class="product_description">
-                    <span class="description">{{ product.description }}</span>
-                  </div>
-                  <div class="product_price">
-                    <span class="description">{{ product.price }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="cards">
+             <Product
+       v-for="product in products" :key="product.id"
+        :name="product.name"
+        :price="product.price"
+        :description="product.description"
+        :image="product.image"
+      />
         </div>
       </section>
     </div>
@@ -261,7 +226,13 @@ h4 {
   justify-content: space-between;
   align-items: center;
 }
-
+.cards {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
 select {
   background: #f8f8f8;
   padding: 10px;
@@ -315,76 +286,8 @@ button {
     color: #fff;
   }
 }
-.thead {
-  .tr {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 10px;
-    text-align: center;
-    margin: 10px;
-    .th {
-      color: #000;
-      font-size: 14px;
-    }
-    div {
-      flex: 1;
-    }
-  }
-}
 .products {
+  margin: 0 auto;
   width: 90%;
-  margin: auto;
-  .table {
-    margin-top: 15px;
-  }
-  p {
-    font-size: 12px;
-  }
-}
-
-.products h3 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 0;
-}
-
-.tbody {
-  background: #fcfcfc;
-  padding: 15px;
-  border-radius: 5px;
-  width: 100%;
-}
-.product_info {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 10px;
-  background: white;
-  margin: 10px;
-  border-radius: 5px;
-  text-align: center;
-  span {
-    color: #6c6c6c;
-    font-size: 14px;
-  }
-  div {
-    flex: 1;
-  }
-}
-.product_avatar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  .avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
 }
 </style>
