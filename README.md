@@ -62,3 +62,57 @@ To delete a product from the command line run ( replace product_id with the prod
 ```
 php artisan product:delete --id=product_id
 ```
+## API Endpoints
+
+#### *Get products*
+```
+[GET] /api/products 
+```
+#### *Create product*
+```
+[POST] /api/products 
+```
+##### Required Inputs :
+ - Name
+ - Description
+ - Price
+ - Image
+#### *Delete product*
+```
+[DELETE] /api/products/{id}
+```
+#### *Attach product with category*
+```
+[POST] /products/categories
+```
+##### Required Inputs :
+ - product_id
+ - category_id
+ 
+#### *Get products by category*
+```
+[GET] /categories/{id}
+```
+#### *Get Categories*
+```
+[GET] /api/categories
+```
+#### *Create categories*
+```
+[POST] /api/categories 
+```
+##### Required Inputs :
+ - Name
+##### Optional Inputs :
+- parent_id
+
+#### *Sort products*
+By name `[GET] /api/products?sort=name`
+By price `[GET] /api/products?sort=price`
+
+#### *Sort products within category*
+By name `[GET] /api/products?sort=name?category=1`
+
+## Demo
+
+You can check the live demo of this application by visiting this link
