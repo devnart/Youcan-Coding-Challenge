@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $this->categoryService = $categoryService;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return $this->categoryService->getAll();
     }
 
 
@@ -34,7 +34,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->categoryService->create($request->all());
     }
     
     /**

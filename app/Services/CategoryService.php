@@ -12,5 +12,15 @@ class CategoryService
     {
         $this->categoryRepository = $categoryRepository;
     }
-    
+
+    public function getAll()
+    {
+        return $this->categoryRepository->getAll();
+    }
+
+    public function create(array $data)
+    {
+        $this->categoryRepository->create($data);
+        return response()->json(['success' => 'Category has been created successfully.']);
+    }
 }
