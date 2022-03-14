@@ -17,10 +17,10 @@ class ProductRepository
         if ($categoryId) {
             $category = Category::findOrFail($categoryId);
 
-            $sorted = $category->products->sortBy($by);
+            $sorted = $category->products->paginate(10);
             return $sorted->values()->all();
         } else {
-            return Product::orderBy($by)->get();
+            return Product::orderBy($by)->paginate(10);
         }
     }
 

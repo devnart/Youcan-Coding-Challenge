@@ -113,6 +113,7 @@ By price `[GET] /api/products?sort=price`
 #### *Sort products within category*
 By name `[GET] /api/products?sort=name?category=1`
 
-## Demo
+## Screenshots
 
-You can check the live demo of this application by visiting this link
+## Demo
+Deploying ...
