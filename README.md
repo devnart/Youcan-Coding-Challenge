@@ -114,6 +114,8 @@ By price `[GET] /api/products?sort=price`
 By name `[GET] /api/products?sort=name?category=1`
 
 ## Screenshots
+![alt text](https://bouchikhi.com/challenge/111.png)
+![alt text](https://bouchikhi.com/challenge/112.png)
 
 ## Demo
 Deploying ...
