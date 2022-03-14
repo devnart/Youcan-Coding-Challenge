@@ -19329,7 +19329,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       name: "",
       price: "",
       description: "",
-      image: null
+      image: null,
+      showDisabled: true
     };
   },
   methods: {
@@ -19742,7 +19743,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), 128
   /* KEYED_FRAGMENT */
   ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
-    "show-disabled": "true",
+    "show-disabled": $data.showDisabled,
     align: "center",
     data: $data.products,
     onPaginationChangePage: $options.getData
@@ -19758,7 +19759,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["data", "onPaginationChangePage"])])])]);
+  , ["show-disabled", "data", "onPaginationChangePage"])])])]);
 }
 
 /***/ }),

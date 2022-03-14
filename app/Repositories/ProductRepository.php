@@ -16,11 +16,10 @@ class ProductRepository
 
         if ($categoryId) {
             $category = Category::findOrFail($categoryId);
+            return $category->products()->orderBy($by)->paginate(10);
 
-            $sorted = $category->products->paginate(10);
-            return $sorted->values()->all();
         } else {
-            return Product::orderBy($by)->paginate(10);
+            return Product::orderBy($by, 'asc' )->paginate(10);
         }
     }
 
@@ -48,7 +47,7 @@ class ProductRepository
     public function getByCategory($id)
     {
         $category = Category::findOrFail($id);
-        return $category->products;
+        return $category->products()->paginate(10);
     }
 
     public function delete($id)

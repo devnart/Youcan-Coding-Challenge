@@ -18,6 +18,7 @@ export default {
             price: "",
             description: "",
             image: null,
+            showDisabled: true,
         };
     },
     methods: {
@@ -226,7 +227,7 @@ export default {
                     />
                 </div>
                 <pagination
-                    show-disabled="true"
+                    :show-disabled=showDisabled
                     align="center"
                     :data="products"
                     @pagination-change-page="getData"
