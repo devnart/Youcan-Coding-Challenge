@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ProductService;
+use Illuminate\Http\Response;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProductController extends Controller
 {
@@ -17,16 +19,12 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return LengthAwarePaginator
      */
-    public function index(Request $request)
+    public function index(Request $request): LengthAwarePaginator
     {
         return $request->query('sort') ? $this->productService->sort($request->query('sort'),$request->query('category')) : $this->productService->getAll();
-    }
-
-    public function attachToCategory(Request $request)
-    {
-        return $this->productService->attachToCategory($request->all());
     }
 
     public function getByCategory($id){
@@ -37,7 +35,7 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -48,7 +46,7 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Product $product)
     {

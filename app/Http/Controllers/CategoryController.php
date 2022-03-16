@@ -2,13 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Services\CategoryService;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
 {
 
+    /**
+     * The user repository implementation.
+     *
+     * @var CategoryService
+     */
     private $categoryService;
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  CategoryService  $categoryService
+     * @return void
+     */
 
     public function __construct(CategoryService $categoryService)
     {
@@ -18,33 +35,40 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Collection
      */
-    public function index()
+    public function index(): Collection
     {
         return $this->categoryService->getAll();
     }
 
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        return $this->categoryService->create($request->all());
+        try {
+            $this->categoryService->create($request->all());
+            return response()->json('category created successfully',201);
+        }catch (ValidationException $ex){
+            return response()->json($ex->errors(), $ex->status);
+        }
+
     }
-    
+
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function destroy(Category $category)
+    public function attachToCategory(Request $request): JsonResponse
     {
-        //
+        try {
+            $this->categoryService->attachToCategory($request->all());
+            return response()->json('product attached successfully',201);
+        }catch (ValidationException $ex){
+            return response()->json($ex->errors(), $ex->status);
+        }
     }
 }

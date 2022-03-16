@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Services;
 use App\Repositories\ProductRepository;
@@ -22,7 +22,7 @@ class ProductService
     {
         return $this->productRepository->sort($by, $category);
     }
-    
+
     public function create($data)
     {
         $validatedData = $data->validate([
@@ -32,18 +32,12 @@ class ProductService
             'description' => 'required|string',
         ]);
 
-        $imageName = time().'-'.$data->name.'.'.$data->image->extension();  
+        $imageName = time().'-'.$data->name.'.'.$data->image->extension();
         $data->image->move(public_path('images'), $imageName);
 
         $this->productRepository->create($data->all(), $imageName);
 
         return response()->json(['success' => 'Product has been created successfully.'], 201);
-    }
-
-    public function attachToCategory(array $data)
-    {
-        $this->productRepository->attachToCategory($data);
-        return response()->json(['success' => 'Product has been attached to category successfully.'], 201);
     }
 
     public function getByCategory($id)

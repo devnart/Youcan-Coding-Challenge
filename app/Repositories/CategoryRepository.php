@@ -1,27 +1,59 @@
-<?php 
+<?php
 
 namespace App\Repositories;
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class CategoryRepository
 {
-    public function getAll()
+    /**
+     * @var ProductRepository
+     */
+    private $productRepository;
+
+    /**
+     * @param ProductRepository $productRepository
+     */
+    public function __construct(ProductRepository $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return Collection
+      */
+    public function getAll(): Collection
     {
         return Category::all();
     }
 
-    public function create(array $data)
+    /**
+     * @param array $data
+     * @return Category
+     */
+    public function create(array $data): Category
     {
         return Category::create($data);
     }
 
+    /**
+     * @param array $data
+     * @return void
+     */
     public function attachToCategory(array $data)
     {
-        $product = Product::findOrFail($data['product_id']);
+        $product = $this->productRepository->findById($data['product_id']);
         $product->categories()->attach($data['category_id']);
     }
 
-    public function delete($id)
+    /**
+     * @param int $id
+     * @return mixed
+     */
+    public function delete(int $id)
     {
         $category = Category::find($id);
         $category->delete();
