@@ -18,7 +18,7 @@ class ProductTest extends TestCase
     public function test_get_products()
     {
         $response = $this->get('api/products');
-        $response->assertStatus(200);
+        $response->assertOk();
     }
 
     /**
@@ -29,7 +29,7 @@ class ProductTest extends TestCase
     public function test_sort_products()
     {
         $response = $this->get('api/products?sort=name');
-        $response->assertStatus(200);
+        $response->assertOk();
     }
 
     /**
@@ -40,7 +40,7 @@ class ProductTest extends TestCase
     public function test_sort_products_by_category()
     {
         $response = $this->get('api/products?sort=name&category=1');
-        $response->assertStatus(200);
+        $response->assertOk();
     }
 
     public function test_product_creation(){
@@ -51,7 +51,7 @@ class ProductTest extends TestCase
             'description' => 'Test Description',
             'image' => UploadedFile::fake()->image('test.jpg')
         ]);
-        $response->assertStatus(201);
+        $response->assertCreated();
     }
 
 }

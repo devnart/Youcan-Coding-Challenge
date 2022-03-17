@@ -16,7 +16,7 @@ class CategoryTest extends TestCase
     public function test_get_categories()
     {
         $response = $this->get('api/categories');
-        $response->assertStatus(200);
+        $response->assertOk();
     }
 
     /**
@@ -27,6 +27,6 @@ class CategoryTest extends TestCase
     public function test_store_categories()
     {
         $response = $this->post('api/categories', ['name' => 'Test']);
-        $response->assertStatus(201);
+        $response->assertCreated();
     }
 }
