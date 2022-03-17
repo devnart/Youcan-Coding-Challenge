@@ -3,17 +3,26 @@
 namespace App\Console\Commands;
 use App\Repositories\ProductRepository;
 
+use App\Services\ProductService;
 use Illuminate\Console\Command;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class CreateProductCommand extends Command
 {
+    /**
+     * @var ProductService
+     */
+    private $productService;
 
-    private $productRepository;
-
-    public function __construct(ProductRepository $productRepository)
+    /**
+     * @param ProductService $productService
+     */
+    public function __construct(ProductService $productService)
     {
         parent::__construct();
-        $this->productRepository = $productRepository;
+        $this->productService = $productService;
     }
 
     /**
@@ -32,22 +41,25 @@ class CreateProductCommand extends Command
 
     /**
      * Execute the console command.
+     * @throws ValidationException
      */
     public function handle()
     {
         $name = $this->ask('Product name');
         $description = $this->ask('Description');
         $price = $this->ask('Price');
-        $image = $this->ask('Image location');
+
+        Storage::fake('photos');
+
 
         $data = [
             'name' => $name,
             'description' => $description,
             'price' => $price,
+            'image' => UploadedFile::fake()->image('command.jpg')
         ];
 
-        $this->productRepository->create($data, $image);
-
+        $this->productService->create($data);
         $this->info('Product created successfully.');
     }
 }

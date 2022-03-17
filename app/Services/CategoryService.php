@@ -76,7 +76,7 @@ class CategoryService
     {
         $validator = Validator::make($data, [
             'name' => 'required|string',
-            'parent_id' => 'numeric'
+            'parent_id' => 'numeric|nullable'
         ]);
 
         if ($validator->fails()) {
@@ -84,6 +84,15 @@ class CategoryService
         }
 
         $this->categoryRepository->create($data);
+    }
+
+    /**
+     * @param int $id
+     * @return void
+     */
+    public function delete(int $id)
+    {
+        $this->categoryRepository->delete($id);
     }
 
 }

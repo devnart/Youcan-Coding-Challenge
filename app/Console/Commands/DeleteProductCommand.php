@@ -3,16 +3,23 @@
 namespace App\Console\Commands;
 use App\Repositories\ProductRepository;
 
+use App\Services\ProductService;
 use Illuminate\Console\Command;
 
 class DeleteProductCommand extends Command
 {
-    private $productRepository;
+    /**
+     * @var ProductService
+     */
+    private $productService;
 
-    public function __construct(ProductRepository $productRepository)
+    /**
+     * @param ProductService $productService
+     */
+    public function __construct(ProductService $productService)
     {
         parent::__construct();
-        $this->productRepository = $productRepository;
+        $this->productService = $productService;
     }
 
     /**
@@ -37,7 +44,7 @@ class DeleteProductCommand extends Command
     public function handle()
     {
         $id = $this->option('id');
-        $product = $this->productRepository->delete($id);
+        $this->productService->delete($id);
         $this->info('Product deleted successfully.');
     }
 }

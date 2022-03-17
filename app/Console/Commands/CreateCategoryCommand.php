@@ -1,20 +1,21 @@
 <?php
 
 namespace App\Console\Commands;
-use App\Repositories\CategoryRepository;
 
+use App\Services\CategoryService;
 use Illuminate\Console\Command;
+use Illuminate\Validation\ValidationException;
 
 class CreateCategoryCommand extends Command
 {
-    private $categoryRepository;
+    private $categoryService;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(CategoryService $categoryService)
     {
         parent::__construct();
-        $this->categoryRepository = $categoryRepository;
+        $this->categoryService = $categoryService;
     }
-    
+
     /**
      * The name and signature of the console command.
      *
@@ -31,6 +32,7 @@ class CreateCategoryCommand extends Command
 
     /**
      * Execute the console command.
+     * @throws ValidationException
      */
     public function handle()
     {
@@ -42,7 +44,7 @@ class CreateCategoryCommand extends Command
             'parent_id' => $parent_id,
         ];
 
-        $this->categoryRepository->create($data);
+        $this->categoryService->create($data);
 
         $this->info('Category created successfully.');
     }

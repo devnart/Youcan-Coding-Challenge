@@ -1,18 +1,24 @@
 <?php
 
 namespace App\Console\Commands;
-use App\Repositories\CategoryRepository;
 
+use App\Services\CategoryService;
 use Illuminate\Console\Command;
 
 class DeleteCategoryCommand extends Command
 {
-    private $categoryRepository;
+    /**
+     * @var CategoryService
+     */
+    private $categoryService;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    /**
+     * @param CategoryService $categoryService
+     */
+    public function __construct(CategoryService $categoryService)
     {
         parent::__construct();
-        $this->categoryRepository = $categoryRepository;
+        $this->categoryService = $categoryService;
     }
 
     /**
@@ -27,7 +33,7 @@ class DeleteCategoryCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Delete category by id'; 
+    protected $description = 'Delete category by id';
 
     /**
      * Execute the console command.
@@ -35,7 +41,7 @@ class DeleteCategoryCommand extends Command
     public function handle()
     {
         $id = $this->option('id');
-        $this->categoryRepository->delete($id);
+        $this->categoryService->delete($id);
         $this->info('Category deleted successfully.');
     }
 }
