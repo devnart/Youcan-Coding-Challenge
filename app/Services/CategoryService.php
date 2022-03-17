@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+use App\Models\Category;
 use App\Repositories\CategoryRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Validator;
@@ -11,8 +12,7 @@ class CategoryService
 {
 
     /**
-     * The user repository implementation.
-     *
+     * The Category repository implementation.
      * @var CategoryRepository
      */
 
@@ -36,6 +36,15 @@ class CategoryService
     {
         return $this->categoryRepository->getAll();
     }
+
+    /**
+     * @param int $id
+     * @return Category
+     */
+    public function findById(int $id){
+        return $this->categoryRepository->findById($id);
+    }
+
 
     /**
      * @param array $data

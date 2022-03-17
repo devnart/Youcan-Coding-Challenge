@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
 use Illuminate\Http\Response;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
@@ -27,29 +29,29 @@ class ProductController extends Controller
         return $request->query('sort') ? $this->productService->sort($request->query('sort'),$request->query('category')) : $this->productService->getAll();
     }
 
-    public function getByCategory($id){
+    /**
+     * @param int $id
+     * @return LengthAwarePaginator
+     */
+    public function getByCategory(int $id): LengthAwarePaginator
+    {
         return $this->productService->getByCategory($id);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Response
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        return $this->productService->create($request);
+        try {
+            $this->productService->create($request->all());
+            return response()->json('Product created successfully',201);
+        }catch (ValidationException $ex){
+            return response()->json($ex->errors(), $ex->status);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return Response
-     */
-    public function destroy(Product $product)
-    {
-        return $this->productService->delete($product->id);
-    }
 }

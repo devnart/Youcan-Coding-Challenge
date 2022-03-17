@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Product;
 use App\Models\Category;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 use Illuminate\Pagination\LengthAwarePaginator;
-use phpDocumentor\Reflection\Types\Collection;
 
 class ProductRepository
 {
+
+
     /**
      * @return LengthAwarePaginator
      */
@@ -20,13 +20,14 @@ class ProductRepository
 
     /**
      * @param string $by
-     * @param int $categoryId
+     * @param int|null $categoryId
      * @return LengthAwarePaginator
      */
-    public function sort(string $by, int $categoryId): LengthAwarePaginator
+    public function sort(string $by, int $categoryId = null): LengthAwarePaginator
     {
 
         if ($categoryId) {
+            // $category = $this->categoryRepository->findById($categoryId);
             $category = Category::findOrFail($categoryId);
             return $category->products()->orderBy($by)->paginate(10);
 
@@ -65,11 +66,12 @@ class ProductRepository
     }
 
     /**
-     * @param $id
-     * @return Collection
+     * @param int $id
+     * @return LengthAwarePaginator
      */
-    public function getByCategory($id): Collection
+    public function getByCategory(int $id): LengthAwarePaginator
     {
+        // $category = $this->categoryRepository->findById($id);
         $category = Category::findOrFail($id);
         return $category->products()->paginate(10);
     }
@@ -84,10 +86,10 @@ class ProductRepository
     }
 
     /**
-     * @param $id
+     * @param int $id
      * @return void
      */
-    public function delete($id)
+    public function delete(int $id)
     {
         $product = Product::find($id);
         $product->delete();

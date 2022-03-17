@@ -3,51 +3,82 @@
 namespace App\Services;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class ProductService
 {
+    /**
+     * @var ProductRepository
+     */
     private $productRepository;
 
+    /**
+     * @param ProductRepository $productRepository
+     */
     public function __construct(ProductRepository $productRepository)
     {
         $this->productRepository = $productRepository;
     }
 
-    public function getAll()
+    /**
+     * @return LengthAwarePaginator
+     */
+    public function getAll(): LengthAwarePaginator
     {
         return $this->productRepository->getAll();
     }
 
-    public function sort($by, $category = null)
+    /**
+     * @param string $by
+     * @param int|null $category
+     * @return LengthAwarePaginator
+     */
+    public function sort(string $by, int $category = null)
     {
         return $this->productRepository->sort($by, $category);
     }
 
-    public function create($data)
+    /**
+     * @param array $data
+     *
+     * @throws ValidationException
+     */
+    public function create(array $data)
     {
-        $validatedData = $data->validate([
+
+        $validator = Validator::make($data, [
             'image' => 'required|image|mimes:jpg,png,jpeg',
             'name' => 'required|string',
             'price' => 'required|numeric',
             'description' => 'required|string',
         ]);
 
-        $imageName = time().'-'.$data->name.'.'.$data->image->extension();
-        $data->image->move(public_path('images'), $imageName);
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
 
-        $this->productRepository->create($data->all(), $imageName);
+        $imageName = time().'-'.$data['name'].'.'.$data['image']->extension();
+        $data['image']->move(public_path('images'), $imageName);
 
-        return response()->json(['success' => 'Product has been created successfully.'], 201);
+        $this->productRepository->create($data, $imageName);
     }
 
-    public function getByCategory($id)
+    /**
+     * @param int $id
+     * @return LengthAwarePaginator
+     */
+    public function getByCategory(int $id): LengthAwarePaginator
     {
         return $this->productRepository->getByCategory($id);
     }
 
-    public function delete($id)
+    /**
+     * @param int $id
+     */
+    public function delete(int $id)
     {
-        $product = $this->productRepository->delete($id);
-        return response()->json(['success' => 'Product has been deleted successfully.']);
+        $this->productRepository->delete($id);
     }
 }

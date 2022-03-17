@@ -59,4 +59,13 @@ class CategoryRepository
         $category->delete();
         return $category;
     }
+
+    /**
+     * @param int $id
+     * @return Category
+     */
+    public function findById(int $id): Category
+    {
+        return Category::findOrFail($id);
+    }
 }
