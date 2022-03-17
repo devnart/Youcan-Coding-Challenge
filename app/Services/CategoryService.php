@@ -41,7 +41,8 @@ class CategoryService
      * @param int $id
      * @return Category
      */
-    public function findById(int $id){
+    public function findById(int $id): Category
+    {
         return $this->categoryRepository->findById($id);
     }
 

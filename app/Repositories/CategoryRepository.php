@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CategoryRepository
 {
+
     /**
      * @var ProductRepository
      */
